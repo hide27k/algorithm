@@ -3,7 +3,7 @@ using namespace std;
 
 int countPattern(int A, int B, int C, int X)
 {
-    if (A < 0 || B < 0 || C < 0 || X < 0)
+    if (X < 0)
     {
         return 0;
     }
@@ -13,9 +13,21 @@ int countPattern(int A, int B, int C, int X)
     }
     else
     {
-        return countPattern(A - 1, B, C, X - 500) +
-               countPattern(A, B - 1, C, X - 100) +
-               countPattern(A, B, C - 1, X - 50);
+        int countA = 0;
+	int countB = 0;
+	int countC = 0;
+
+	if (A >= 0) {
+	    countA = countPattern(A - 1, B, C, X - 500); 
+	}
+	if (B >= 0) {
+	    countB = countPattern(A, B - 1, C, X - 100);
+	}
+	if (C >= 0) {
+            countC = countPattern(A, B, C - 1, X - 50);
+	}
+
+	return countA + countB + countC; 
     }
 }
 
