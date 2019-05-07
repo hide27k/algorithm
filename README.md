@@ -1,2 +1,2 @@
 # algorithm
-C/C++ implementation of algorithm
+C/C++ implementation of algorithms.
